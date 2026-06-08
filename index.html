@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://sandrine-paraud-marot.fr https://picsum.photos https://fastly.picsum.photos data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; base-uri 'self'; form-action 'self';">
   <title>Proposition de refonte | Sandrine Paraud-Marot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,40 +55,14 @@
 
     .hero {
       padding: 28px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 24px;
-      align-items: center;
       margin-bottom: 24px;
+      overflow: hidden;
     }
 
-    .logo {
-      width: 110px;
-      height: 110px;
-      border-radius: 28px;
-      padding: 10px;
-      background: rgba(1, 112, 185, 0.06);
-    }
-
-    .logo-shell {
-      position: relative;
-      width: 110px;
-      height: 110px;
-    }
-
-    .logo-fallback {
-      position: absolute;
-      inset: 0;
-      display: none;
-      place-items: center;
-      padding: 14px;
-      border-radius: 28px;
-      background: rgba(1, 112, 185, 0.06);
-      color: var(--text);
-      text-align: center;
-      font-weight: 500;
-      font-size: 0.95rem;
-      line-height: 1.35;
+    .hero-banner {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
     }
 
     h1,
@@ -266,24 +240,8 @@
         padding: 20px;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: left;
-      }
-
-      .logo {
-        width: 84px;
-        height: 84px;
-      }
-
-      .logo-shell {
-        width: 84px;
-        height: 84px;
-      }
-
-      .logo-fallback {
-        border-radius: 24px;
-        font-size: 0.82rem;
+      .hero-banner {
+        border-radius: 8px;
       }
     }
   </style>
@@ -291,10 +249,7 @@
 <body>
   <main class="page">
     <section class="hero">
-      <div class="logo-shell">
-        <img class="logo" id="sandrine-logo" src="https://sandrine-paraud-marot.fr/wp-content/uploads/2021/08/3.-Icone-300x300-1.png" alt="Logo de Sandrine Paraud-Marot">
-        <div class="logo-fallback" id="sandrine-logo-fallback">Sandrine<br>Paraud-Marot</div>
-      </div>
+      <img class="hero-banner" src="BG.png" alt="Sandrine Paraud-Marot">
       <div>
         <div class="badge">Proposition de refonte</div>
         <h1>Proposition de refonte du site internet de Sandrine Paraud-Marot</h1>
@@ -370,14 +325,6 @@
         </div>
       </section>
 
-      <section aria-labelledby="galerie">
-        <h2 id="galerie">Galerie d'inspirations</h2>
-        <div class="photo-grid">
-          <img src="https://picsum.photos/id/1015/800/600" alt="Paysage inspirant pour la création visuelle">
-          <img src="https://picsum.photos/id/1059/800/600" alt="Textures et couleurs pour un design moderne">
-          <img src="https://picsum.photos/id/1025/800/600" alt="Exemple de mise en page épurée">
-        </div>
-      </section>
     </div>
   </main>
   <script src="main.js"></script>
