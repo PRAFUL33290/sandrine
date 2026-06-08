@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://sandrine-paraud-marot.fr data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://sandrine-paraud-marot.fr data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; base-uri 'self'; form-action 'self';">
   <title>Proposition d’accompagnement | Sandrine Paraud-Marot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -472,31 +472,6 @@
       </section>
     </div>
   </main>
-  <script>
-    const logo = document.getElementById('sandrine-logo');
-    const fallback = document.getElementById('sandrine-logo-fallback');
-    const acceptButton = document.getElementById('accept-proposal');
-    const validationSection = document.getElementById('validation');
-
-    function showLogoFallback() {
-      if (fallback.style.display === 'grid') {
-        return;
-      }
-
-      logo.style.display = 'none';
-      fallback.style.display = 'grid';
-    }
-
-    logo.addEventListener('error', showLogoFallback, { once: true });
-
-    if (typeof logo.decode === 'function') {
-      logo.decode().catch(showLogoFallback);
-    }
-
-    acceptButton.addEventListener('click', () => {
-      validationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      validationSection.focus({ preventScroll: true });
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
