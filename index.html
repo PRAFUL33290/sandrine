@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://sandrine-paraud-marot.fr data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self';">
   <title>Proposition d’accompagnement | Sandrine Paraud-Marot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -444,10 +445,10 @@
           <div class="closing">
             Cette proposition permet de garder votre site internet propre, sécurisé, à jour et agréable pour vos visiteurs, sans avoir à gérer la partie technique.
           </div>
-          <a class="cta" href="#validation">J’accepte cette proposition</a>
+          <button class="cta" id="accept-proposal" type="button">J’accepte cette proposition</button>
         </article>
 
-        <aside class="footer-card" id="validation" aria-labelledby="validation-title">
+        <aside class="footer-card" id="validation" aria-labelledby="validation-title" tabindex="-1">
           <h2 id="validation-title">Zone de validation</h2>
           <div class="validation">
             <div class="line">
@@ -474,8 +475,14 @@
   <script>
     const logo = document.getElementById('sandrine-logo');
     const fallback = document.getElementById('sandrine-logo-fallback');
+    const acceptButton = document.getElementById('accept-proposal');
+    const validationSection = document.getElementById('validation');
 
     function showLogoFallback() {
+      if (fallback.style.display === 'grid') {
+        return;
+      }
+
       logo.style.display = 'none';
       fallback.style.display = 'grid';
     }
@@ -485,6 +492,11 @@
     if (typeof logo.decode === 'function') {
       logo.decode().catch(showLogoFallback);
     }
+
+    acceptButton.addEventListener('click', () => {
+      validationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      validationSection.focus({ preventScroll: true });
+    });
   </script>
 </body>
 </html>
