@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposition d’accompagnement | Sandrine Paraud-Marot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #ffffff;
+      --primary: #0170b9;
+      --text: #346768;
+      --accent: #346768;
+      --muted: #69727d;
+      --border: rgba(1, 112, 185, 0.14);
+      --shadow: 0 18px 45px rgba(52, 103, 104, 0.08);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .hero,
+    .card,
+    .summary,
+    .footer-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 28px;
+      padding: 10px;
+      background: rgba(1, 112, 185, 0.06);
+    }
+
+    .logo-shell {
+      position: relative;
+      width: 110px;
+      height: 110px;
+    }
+
+    .logo-fallback {
+      position: absolute;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 14px;
+      border-radius: 28px;
+      background: rgba(1, 112, 185, 0.06);
+      color: var(--text);
+      text-align: center;
+      font-weight: 500;
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      color: var(--text);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: var(--primary);
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .subtitle,
+    .section-intro,
+    .note,
+    .muted,
+    td:last-child {
+      color: var(--muted);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      background: rgba(1, 112, 185, 0.09);
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .layout {
+      display: grid;
+      gap: 24px;
+    }
+
+    .offer-grid,
+    .why-grid,
+    .final-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .offer-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .why-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .final-grid {
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    }
+
+    .card,
+    .summary,
+    .footer-card {
+      padding: 24px;
+    }
+
+    .price {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 16px 0;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(52, 103, 104, 0.08);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .important-note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(1, 112, 185, 0.06);
+      color: var(--text);
+      border: 1px solid rgba(1, 112, 185, 0.12);
+    }
+
+    .why-card {
+      text-align: left;
+      min-height: 180px;
+    }
+
+    .why-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+      color: var(--primary);
+      background: rgba(1, 112, 185, 0.09);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 12px;
+    }
+
+    th,
+    td {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(52, 103, 104, 0.12);
+      text-align: left;
+    }
+
+    th {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .cta {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 56px;
+      margin-top: 22px;
+      border: none;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 14px 30px rgba(1, 112, 185, 0.22);
+    }
+
+    .validation {
+      margin-top: 24px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .line {
+      min-height: 58px;
+      padding: 12px 16px;
+      border: 1px solid rgba(52, 103, 104, 0.18);
+      border-radius: 16px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+    }
+
+    .line strong,
+    .provider strong {
+      color: var(--text);
+    }
+
+    .signature-box {
+      min-height: 120px;
+      align-content: start;
+      padding-top: 14px;
+    }
+
+    .provider {
+      padding-top: 6px;
+      border-top: 1px solid rgba(52, 103, 104, 0.12);
+    }
+
+    .provider p + p {
+      margin-top: 4px;
+    }
+
+    .closing {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(1, 112, 185, 0.08), rgba(52, 103, 104, 0.08));
+    }
+
+    @media (max-width: 960px) {
+      .offer-grid,
+      .final-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, 1120px);
+        padding: 20px 0 40px;
+      }
+
+      .hero,
+      .card,
+      .summary,
+      .footer-card {
+        padding: 20px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .logo {
+        width: 84px;
+        height: 84px;
+      }
+
+      .logo-shell {
+        width: 84px;
+        height: 84px;
+      }
+
+      .logo-fallback {
+        border-radius: 24px;
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="logo-shell">
+        <img class="logo" src="https://sandrine-paraud-marot.fr/wp-content/uploads/2021/08/3.-Icone-300x300-1.png" alt="Logo Sandrine Paraud-Marot" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+        <div class="logo-fallback" aria-hidden="true">Sandrine<br>Paraud-Marot</div>
+      </div>
+      <div>
+        <div class="badge">Proposition de devis</div>
+        <h1>Proposition d’accompagnement pour le site internet de Sandrine Paraud-Marot</h1>
+        <p class="subtitle">Une solution simple pour moderniser, sécuriser et maintenir votre site WordPress tout au long de l’année.</p>
+      </div>
+    </section>
+
+    <div class="layout">
+      <section aria-labelledby="offres">
+        <h2 id="offres">Les prestations proposées</h2>
+        <p class="section-intro">Une approche claire, rassurante et adaptée à votre site actuel, afin de lui offrir une présentation plus fluide et un suivi technique serein.</p>
+        <div class="offer-grid">
+          <article class="card">
+            <h3>Refonte visuelle légère</h3>
+            <div class="price">80 € une seule fois</div>
+            <ul>
+              <li>Modernisation de l’apparence générale du site</li>
+              <li>Amélioration de la mise en page</li>
+              <li>Harmonisation visuelle avec l’identité actuelle</li>
+              <li>Optimisation de l’affichage mobile</li>
+              <li>Réorganisation légère des contenus existants</li>
+              <li>Amélioration du confort de lecture</li>
+              <li>Conservation du site et des contenus actuels</li>
+            </ul>
+            <div class="important-note">
+              Ce n’est pas une création complète de site internet, mais une amélioration visuelle du site existant.
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Maintenance mensuelle WordPress</h3>
+            <div class="price">30 € / mois</div>
+            <ul>
+              <li>Mises à jour WordPress</li>
+              <li>Mises à jour des extensions</li>
+              <li>Mises à jour du thème</li>
+              <li>Sauvegardes régulières</li>
+              <li>Surveillance de la sécurité</li>
+              <li>Vérification du bon fonctionnement du site</li>
+              <li>Correction des petits bugs techniques</li>
+              <li>Assistance par email</li>
+              <li>Intervention en cas de problème technique</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="pourquoi">
+        <h2 id="pourquoi">Pourquoi choisir cette maintenance&nbsp;?</h2>
+        <div class="why-grid">
+          <article class="card why-card">
+            <div class="why-icon" aria-hidden="true">🔒</div>
+            <h3>Sécurité</h3>
+            <p class="muted">Un site mieux protégé grâce à une surveillance régulière et des mises à jour maîtrisées.</p>
+          </article>
+          <article class="card why-card">
+            <div class="why-icon" aria-hidden="true">💾</div>
+            <h3>Sauvegardes</h3>
+            <p class="muted">Des sauvegardes fréquentes pour préserver vos contenus et restaurer rapidement le site si besoin.</p>
+          </article>
+          <article class="card why-card">
+            <div class="why-icon" aria-hidden="true">🌿</div>
+            <h3>Sérénité</h3>
+            <p class="muted">Vous avancez l’esprit tranquille, sans avoir à gérer la partie technique au quotidien.</p>
+          </article>
+          <article class="card why-card">
+            <div class="why-icon" aria-hidden="true">✅</div>
+            <h3>Site toujours fonctionnel</h3>
+            <p class="muted">Votre présence en ligne reste fiable, fluide et agréable pour chaque visiteur.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="final-grid">
+        <article class="summary" aria-labelledby="recapitulatif">
+          <h2 id="recapitulatif">Récapitulatif du devis</h2>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Prestation</th>
+                <th scope="col">Tarif</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Refonte visuelle légère</td>
+                <td>80 € TTC</td>
+              </tr>
+              <tr>
+                <td>Maintenance WordPress</td>
+                <td>30 € TTC / mois</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="note">Offre sans engagement pour la maintenance mensuelle.</p>
+          <div class="closing">
+            Cette proposition permet de garder votre site internet propre, sécurisé, à jour et agréable pour vos visiteurs, sans avoir à gérer la partie technique.
+          </div>
+          <a class="cta" href="#validation">J’accepte cette proposition</a>
+        </article>
+
+        <aside class="footer-card" id="validation" aria-labelledby="validation-title">
+          <h2 id="validation-title">Zone de validation</h2>
+          <div class="validation">
+            <div class="line">
+              <strong>Nom :</strong>
+            </div>
+            <div class="line">
+              <strong>Date :</strong>
+            </div>
+            <div class="line signature-box">
+              <strong>Signature :</strong>
+            </div>
+          </div>
+          <div class="provider" style="margin-top: 22px;">
+            <p><strong>Prestataire :</strong></p>
+            <p>Praful Design</p>
+            <p>Julien Guerrier</p>
+            <p><a href="mailto:contact@praful-design.fr">contact@praful-design.fr</a></p>
+            <p><a href="https://www.praful-design.fr">www.praful-design.fr</a></p>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
