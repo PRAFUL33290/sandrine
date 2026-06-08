@@ -26,10 +26,12 @@
 
     body {
       margin: 0;
-      background: var(--background);
+      background: url('BG2.png') no-repeat center center fixed;
+      background-size: cover;
       color: var(--text);
       font-family: Roboto, "Helvetica Neue", sans-serif;
       line-height: 1.6;
+      min-height: 100vh;
     }
 
     img {
@@ -56,13 +58,6 @@
     .hero {
       padding: 28px;
       margin-bottom: 24px;
-      overflow: hidden;
-    }
-
-    .hero-banner {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 20px;
     }
 
     h1,
@@ -240,16 +235,13 @@
         padding: 20px;
       }
 
-      .hero-banner {
-        border-radius: 8px;
-      }
+
     }
   </style>
 </head>
 <body>
   <main class="page">
     <section class="hero">
-      <img class="hero-banner" src="BG.png" alt="Sandrine Paraud-Marot">
       <div>
         <div class="badge">Proposition de refonte</div>
         <h1>Proposition de refonte du site internet de Sandrine Paraud-Marot</h1>
@@ -264,7 +256,7 @@
         <div class="offer-grid">
           <article class="card">
             <h3>Refonte du site web</h3>
-            <div class="price">80 € une seule fois</div>
+            <div class="price">100 € une seule fois</div>
             <ul>
               <li>Refonte complète de l'apparence du site avec un design plus moderne</li>
               <li>Conservation de la charte graphique actuelle</li>
