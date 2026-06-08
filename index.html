@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://sandrine-paraud-marot.fr data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://sandrine-paraud-marot.fr https://picsum.photos https://fastly.picsum.photos data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; base-uri 'self'; form-action 'self';">
   <title>Proposition de refonte | Sandrine Paraud-Marot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -149,7 +149,7 @@
 
     .offer-grid,
     .why-grid,
-    .final-grid {
+    .photo-grid {
       display: grid;
       gap: 20px;
     }
@@ -162,8 +162,16 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .final-grid {
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    .photo-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
     .card,
@@ -237,69 +245,9 @@
       font-size: 0.95rem;
     }
 
-    .cta {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      min-height: 56px;
-      margin-top: 22px;
-      border: none;
-      border-radius: 999px;
-      background: var(--primary);
-      color: #fff;
-      font: inherit;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 14px 30px rgba(1, 112, 185, 0.22);
-    }
-
-    .validation {
-      margin-top: 24px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .line {
-      min-height: 58px;
-      padding: 12px 16px;
-      border: 1px solid rgba(52, 103, 104, 0.18);
-      border-radius: 16px;
-      display: grid;
-      align-content: center;
-      gap: 4px;
-    }
-
-    .line strong,
-    .provider strong {
-      color: var(--text);
-    }
-
-    .signature-box {
-      min-height: 120px;
-      align-content: start;
-      padding-top: 14px;
-    }
-
-    .provider {
-      padding-top: 6px;
-      border-top: 1px solid rgba(52, 103, 104, 0.12);
-    }
-
-    .provider p + p {
-      margin-top: 4px;
-    }
-
-    .closing {
-      margin-top: 18px;
-      padding: 18px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(1, 112, 185, 0.08), rgba(52, 103, 104, 0.08));
-    }
-
     @media (max-width: 960px) {
       .offer-grid,
-      .final-grid,
+      .photo-grid,
       .why-grid {
         grid-template-columns: 1fr;
       }
@@ -422,55 +370,13 @@
         </div>
       </section>
 
-      <section class="final-grid">
-        <article class="summary" aria-labelledby="recapitulatif">
-          <h2 id="recapitulatif">Récapitulatif du devis</h2>
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">Prestation</th>
-                <th scope="col">Tarif</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Refonte du site web (incluant SEO)</td>
-                <td>80 € TTC</td>
-              </tr>
-              <tr>
-                <td>Maintenance WordPress (optionnelle)</td>
-                <td>30 € TTC / mois</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="note">La maintenance mensuelle est sans engagement et reste un choix indépendant de la refonte.</p>
-          <div class="closing">
-            Cette proposition vous permet de bénéficier d'un site modernisé, mieux référencé, tout en conservant votre charte graphique. La maintenance, si vous la choisissez, vous assure un site sécurisé et à jour sans vous soucier de la technique.
-          </div>
-          <button class="cta" id="accept-proposal" type="button">J’accepte cette proposition</button>
-        </article>
-
-        <aside class="footer-card" id="validation" aria-labelledby="validation-title" tabindex="-1">
-          <h2 id="validation-title">Zone de validation</h2>
-          <div class="validation">
-            <div class="line">
-              <strong>Nom :</strong>
-            </div>
-            <div class="line">
-              <strong>Date :</strong>
-            </div>
-            <div class="line signature-box">
-              <strong>Signature :</strong>
-            </div>
-          </div>
-          <div class="provider" style="margin-top: 22px;">
-            <p><strong>Prestataire :</strong></p>
-            <p>Praful Design</p>
-            <p>Julien Guerrier</p>
-            <p><a href="mailto:contact@praful-design.fr">contact@praful-design.fr</a></p>
-            <p><a href="https://www.praful-design.fr">www.praful-design.fr</a></p>
-          </div>
-        </aside>
+      <section aria-labelledby="galerie">
+        <h2 id="galerie">Galerie d'inspirations</h2>
+        <div class="photo-grid">
+          <img src="https://picsum.photos/id/1015/800/600" alt="Inspiration design 1">
+          <img src="https://picsum.photos/id/1059/800/600" alt="Inspiration design 2">
+          <img src="https://picsum.photos/id/1025/800/600" alt="Inspiration design 3">
+        </div>
       </section>
     </div>
   </main>
