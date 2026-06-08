@@ -306,7 +306,7 @@
 
     @media (max-width: 640px) {
       .page {
-        width: min(100% - 20px, 1120px);
+        width: min(1120px, calc(100% - 20px));
         padding: 20px 0 40px;
       }
 
@@ -343,8 +343,8 @@
   <main class="page">
     <section class="hero">
       <div class="logo-shell">
-        <img class="logo" src="https://sandrine-paraud-marot.fr/wp-content/uploads/2021/08/3.-Icone-300x300-1.png" alt="Logo Sandrine Paraud-Marot" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-        <div class="logo-fallback" aria-hidden="true">Sandrine<br>Paraud-Marot</div>
+        <img class="logo" id="sandrine-logo" src="https://sandrine-paraud-marot.fr/wp-content/uploads/2021/08/3.-Icone-300x300-1.png" alt="Logo Sandrine Paraud-Marot">
+        <div class="logo-fallback" id="sandrine-logo-fallback" aria-hidden="true">Sandrine<br>Paraud-Marot</div>
       </div>
       <div>
         <div class="badge">Proposition de devis</div>
@@ -471,5 +471,20 @@
       </section>
     </div>
   </main>
+  <script>
+    const logo = document.getElementById('sandrine-logo');
+    const fallback = document.getElementById('sandrine-logo-fallback');
+
+    function showLogoFallback() {
+      logo.style.display = 'none';
+      fallback.style.display = 'grid';
+    }
+
+    logo.addEventListener('error', showLogoFallback);
+
+    if (logo.complete && logo.naturalWidth === 0) {
+      showLogoFallback();
+    }
+  </script>
 </body>
 </html>
